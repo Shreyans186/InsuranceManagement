@@ -8,6 +8,7 @@ node{
         // mavenCMD = "${mavenHome}/bin/mvn"
         tag="3.0"
 	dockerHubUser="shreyans186"
+	    dockerPassword="Youdoofus7#"
 	containerName="insure-me"
 	httpPort="8081"
     }
@@ -49,7 +50,7 @@ node{
         withCredentials([usernamePassword(credentialsId: 'dockerhubaccount', usernameVariable: 'shreyans186', passwordVariable: 'Youdoofus7#')]) 
 	     {
 			sh "docker login -u $dockerHubUser -p $dockerPassword"
-			sh "docker push ${dockerHubUser}/insure-me:${tag}"
+			sh "docker push $dockerHubUser/$containerName:$tag"
 			echo "Image push complete"
         } 
     }    
