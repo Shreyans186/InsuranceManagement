@@ -48,8 +48,8 @@ node{
         echo 'Pushing the docker image to DockerHub'
         withCredentials([usernamePassword(credentialsId: 'dockerhubaccount', usernameVariable: 'shreyans186', passwordVariable: 'Youdoofus7#')]) 
 	     {
-			sh "docker login -u $env.dockerUser -p $env.dockerPassword"
-			sh "docker push $dockerUser/$containerName:$tag"
+			sh "docker login -u $dockerHubUser -p $dockerPassword"
+			sh "docker push $dockerHubUser/$containerName:$tag"
 			echo "Image push complete"
         } 
     }    
