@@ -36,7 +36,7 @@ node{
     
     stage('Docker Image Build'){
         echo 'Creating Docker image'
-        sh "docker build -t $dockerHubUser/$containerName:$tag --pull --no-cache ."
+        sh "docker build -t $dockerHubUser/$containerName:$tag --push --no-cache ."
     }
 	
     stage('Docker Image Scan'){
