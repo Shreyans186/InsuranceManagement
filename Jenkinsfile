@@ -47,13 +47,9 @@ node{
     stage('Publishing Image to DockerHub'){
         echo 'Pushing the docker image to DockerHub'
         withCredentials([usernamePassword(credentialsId: 'dockerhubaccount', usernameVariable: 'shreyans186', passwordVariable: 'Youdoofus7#')]) 
-	    // {
-		   //  withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-     //      sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-     //      sh 'docker push shanem/spring-petclinic:latest'
-     //    }
-			sh "docker login -u ${env.shreyans186} -p ${env.Youdoofus7#}"
-			sh "docker push $dockerHubUser/$containerName:$tag"
+	     {
+			sh "docker login -u $dockerUser -p $dockerPassword"
+			sh "docker push $dockerUser/$containerName:$tag"
 			echo "Image push complete"
         } 
     }    
